@@ -19,8 +19,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add New Customer</h4>
-                  <form class="forms-sample" method ="POST" action ="{{route('customers.store')}}">
+                  <form class="forms-sample" method ="POST" action ="{{route('customers.edit',$customer->id)}}">
                     @csrf
+                    @method('patch') <!-- Method Faking-->
                     @include('customer.form')
                   </form>
                 </div>

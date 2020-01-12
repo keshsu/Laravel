@@ -25,11 +25,15 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
+        <li class="nav-item dropdown mr-1">
+          <a href="{{url()->previous()}}">Back</a>
+        </li>
           <li class="nav-item dropdown mr-1">
             <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
               <i class="mdi mdi-message-text mx-0"></i>
               <span class="count"></span>
             </a>
+           
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
               <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
               <a class="dropdown-item">

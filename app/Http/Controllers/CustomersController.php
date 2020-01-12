@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Customer;
+
+use App\Services\CustomersService;
+
 class CustomersController extends Controller
 {
     /**
@@ -12,15 +14,15 @@ class CustomersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    protected $customer;
+    protected $customerServices;
 
-     public function __construct(Customer $customer){
-            $this->customer = $customer;
+     public function __construct(CustomersService $customerServices){
+        $this->customerServices = $customerServices;
      }
 
     public function index()
     {
-        $customers=$this->customer->get();
+        $customers=$this->customerServices->get();
         return view('customer.index',compact('customers')); 
     }
 
@@ -42,7 +44,20 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+       
+        $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required|email',
+            'contact'=>'required',
+            'address'=>'required'
+        ]);
+
+        if($this->customerServices->store($request->all())){
+            return redirect()->route('customers.index')->with('success','Successfully Created');
+        }
+    
     }
 
     /**
@@ -64,7 +79,8 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer =$this->customerServices->getById($id);
+        return view('customer.edit',compact('customer'));
     }
 
     /**
@@ -76,7 +92,17 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required|email',
+            'contact'=>'required',
+            'address'=>'required'
+        ]);
+
+        if($this->customerServices->update($request->all(),$id)){
+            return redirect()->route('customers.index')->with('success','Successfully Updated');
+        }
     }
 
     /**
@@ -87,6 +113,8 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if($this->customerServices->destroy($id)){
+            return redirect()->back()->with('success','Succesfully Deleted');
+        }
     }
 }

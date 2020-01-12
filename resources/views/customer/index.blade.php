@@ -5,6 +5,11 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+        @if(Session::has('success'))
+        <div class = "alert alert-primary">
+          <p>{!! session()->get('success')!!}</p>
+        </div>
+        @endif
         <div class="row">
             <div class="col-md-12 stretch-card">
               <div class="card">
@@ -16,9 +21,7 @@
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>First Name</th>
-                          <th>Middle Name</th>
-                          <th>Last Name</th>
+                          <th>Full Name</th>
                           <th>Email</th>
                           <th>Contact</th>
                           <th>Address</th>
@@ -29,14 +32,20 @@
                         @foreach($customers as $customer)
                         <tr>
                           <td>{{$customer->id}}</td>
-                          <td>{{$customer->first_name}}</td>
-                          <td>{{$customer->middle_name}}</td>
-                          <td>{{$customer->last_name}}</td>
+                          <td>{{$customer->full_name}}</td>
                           <td>{{$customer->email}}</td>
                           <td>{{$customer->address}}</td>
                           <td>{{$customer->contact}}</td>
-                          <td><a href="">Edit</a>&nbsp;&nbsp;
-                          <a href="">Delete</a></td>
+                          <td>
+                            <a class = "btn btn-outline-primary" href="{{route('customers.edit',$customer->id)}}">Edit</a>  
+                            <br>
+                            <form action="{{ route('customers.delete', $customer->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-outline-danger"onclick ="confirm('Are You sure to Delete?')">Delete</button>
+                            </form>
+                            <!-- <a href="{{route('customers.delete',$customer->id)}}" onclick ="confirm('Are You sure to Delete?')">Delete</a> -->
+                          </td>
                         </tr>
                         @endforeach
                       </tbody>

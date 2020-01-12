@@ -1,0 +1,84 @@
+blog role
+id
+rank int
+rolename
+
+blog phone
+id
+phone no 
+privacy
+
+blog user
+id
+roleid
+userurl 
+blogid
+phoneid
+metaid
+isactive
+
+blog usermeta
+id
+username
+fullname 
+email
+sex
+password
+
+blog mailConfiguration
+id
+metaid
+secureKey
+
+blog blog
+id
+blog_name
+blog_description
+creation_date
+creation_time
+
+
+blog_likes
+id
+postid
+authorid
+
+blog comment
+id
+postid
+authorid
+body
+date
+time
+
+blog commentreply
+id
+commentid
+authorid
+authorurl
+body
+date
+time
+
+blog post
+id
+title
+body
+tags
+blogid
+categoryid
+date
+time
+published
+visibility
+
+blog featuredpost
+id
+postid
+serial
+
+blog category
+id
+categoryname
+description
+visible
