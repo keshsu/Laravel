@@ -16,8 +16,8 @@ class CreateBlogCategoryTable extends Migration
         Schema::create('tbl_blog_category', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name'); //for storing the name of the category
-            $table->string('name_clean');   //for the clean atmost category name
-            $table->boolean('status');  //enabled or disable the followinng category
+            $table->string('name_clean')->nullable();   //for the clean atmost category name
+            $table->enum('status',['active','not-active']);  //enabled or disable the followinng category
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class CreateBlogUser extends Migration
             $table->string('display_name');
             $table->string('first_name');
             $table->string('last_name');
+            $table->enum('gender',['male','female']);
             $table->string('email');
             $table->string('contact');
             $table->string('address');
