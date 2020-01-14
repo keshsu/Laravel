@@ -7,23 +7,23 @@ namespace App\Services;
 use App\BlogCategory;
 class BlogCategoryService 
 {
-    public function __construct(BlogCategory $blogcategory){
-        $this->blogcategory = $blogcategory;
+    public function __construct(BlogCategory $blogCategory){
+        $this->blogCategory = $blogCategory;
     }   
 
     public function getById($id){
-        return $this->blogcategory->where('id','=',$id)->first();
-        // $this->blogcategory->find($id);
+        return $this->blogCategory->where('id','=',$id)->first();
+        // $this->blogCategory->find($id);
     }
 
     public function get(){
-        return $this->blogcategory->get();
+        return $this->blogCategory->get();
     }
     
     public function store(array $request){
        try{
            //mass assignment always tale array not object
-           return $this->blogcategory->create($request);
+           return $this->blogCategory->create($request);
        }
        catch(Exception $e){
             throw $e;
@@ -33,11 +33,11 @@ class BlogCategoryService
     
     public function update($data,$id){
         try{
-            $blogcategory = $this->getById($id);
+            $blogCategory = $this->getById($id);
 
-            $updatedblogcategory = $blogcategory->update($data);
+            $updatedblogCategory = $blogCategory->update($data);
 
-            return $updatedblogcategory;
+            return $updatedblogCategory;
         }
         catch(Exception $e){
             throw $e;
@@ -46,8 +46,8 @@ class BlogCategoryService
 
     public function destroy($id){
         try{
-            $blogcategory = $this->getById($id);
-            return $blogcategory->delete();
+            $blogCategory = $this->getById($id);
+            return $blogCategory->delete();
         }
         catch(Exception $e){
             throw $e;

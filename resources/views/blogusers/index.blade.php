@@ -30,7 +30,7 @@
                         @foreach($blogCategory as $blogCategory)
                         <tr>
                           <td>{{$blogCategory->id}}</td>
-                          <td>{{$blogCategory->full_name}}</td>
+                          <td>{{$blogCategory->name}}</td>
                           <td>{{$blogCategory->status}}</td>
                           <td>
                             <a class = "btn btn-outline-primary" href="{{route('blogcategories.edit',$blogCategory->id)}}">Edit</a>  

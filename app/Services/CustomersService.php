@@ -8,7 +8,7 @@ use App\Customer;
 class CustomersService 
 {
     public function __construct(Customer $customer){
-        $this->customer  = $customer;
+        $this->customer = $customer;
     }   
 
     public function getById($id){

@@ -15,14 +15,15 @@ class CreateBlogUser extends Migration
     {
         Schema::create('tbl_blog_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('display_name');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('display_name');
             $table->enum('gender',['male','female']);
             $table->string('email');
             $table->string('contact');
             $table->string('address');
             $table->string('website');
+            $table->enum('status',['active','not-active']);
             $table->timestamps();
         });
     }

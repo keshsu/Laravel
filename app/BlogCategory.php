@@ -12,10 +12,14 @@ class BlogCategory extends Model
 
     protected $appends = ['full_name'];
 
-    public function getFullNameAttribute(){
-        return $this->name." ".$this->name_clean;
+    // protected $full_name = getFullNameAttribute($this->attributes['name'],'',$this->attributes['name_clean']);
+    function getFullNameAttribute(){
+        return getFullName([$this->name,$this->name_clean]);
     }
+
     public function setNameAttribute($value){
-        $this->attributes['name'] = ucfirst($value);
+        $this->attributes['name'] =  getFirstLetterCapital($value);
     }
+
+
 }

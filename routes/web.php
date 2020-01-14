@@ -35,3 +35,6 @@ Route::post('/blog-categrories/store','BlogCategoryController@store')->name('blo
 Route::get('/blog-categrories/{id}/edit','BlogCategoryController@edit')->name('blogcategories.edit');
 Route::patch('/blog-categrories/{id}/edit','BlogCategoryController@update');
 Route::delete('/blog-categrories/{id}/delete','BlogCategoryController@destory')->name('blogcategories.delete');
+
+//blog User
+Route::get('/user','BlogUserController@Index')->name('users.index');
