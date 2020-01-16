@@ -17,7 +17,7 @@ class BlogUser extends Model
         return getFullName([$this->first_name,$this->last_name]);
     }
 
-    function getFirstNameAttribute($value){
+    function setFirstNameAttribute($value){
         $this->attributes['first_name'] =  getFirstLetterCapital($value);
     }
 
