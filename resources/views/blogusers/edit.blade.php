@@ -19,10 +19,10 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add New User</h4>
-                  <form class="forms-sample" method ="POST" action ="{{route('blogcategories.edit',$blogCategory->id)}}">
+                  <form class="forms-sample" method ="POST" action ="{{route('users.edit',$blogUserService->id)}}">
                     @csrf
                     @method('patch') <!-- Method Faking-->
-                    @include('blogcategories.form')
+                    @include('blogusers.form')
                   </form>
                 </div>
               </div>

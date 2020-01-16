@@ -1,26 +1,18 @@
-first_name');
-            $table->string('last_name');
-            $table->string('display_name');
-            $table->enum('gender',['male','female']);
-            $table->string('email');
-            $table->string('contact');
-            $table->string('address');
-            $table->string('website');
-            $table->enum('status'
+
                     <div class="form-group">
                       <label for="exampleInputFirstname1">Full Name</label>
                       <br>
                       <input type="text" name = "first_name" class="form-control col-md-3 d-inline" id="exampleInputFirstname1" placeholder="First Name"
-                      value = "{{old('first_name',$blogCategory->first_name ?? '')}}">
+                      value = "{{old('first_name',$blogUserService->first_name ?? '')}}">
                    
                       <input type="text" name = "last_name" class="form-control col-md-3 d-inline" id="exampleInputLastname1" placeholder="Last Name"
-                      value = "{{old('last_name',$blogCategory->last_name ?? '')}}">
+                      value = "{{old('last_name',$blogUserService->last_name ?? '')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFirstname1">User Name</label>
                       <br>
                       <input type="text" name = "display_name" class="form-control col-md-3 d-inline" id="exampleInputDisplayname1" placeholder="User Name"
-                      value = "{{old('name',$blogCategory->name ?? '')}}">
+                      value = "{{old('display_name',$blogUserService->display_name ?? '')}}">
                     </div>
                     <div class="form-group">
                       <div class="form-check">
@@ -40,25 +32,25 @@ first_name');
                       <label for="exampleInputEmail1">Email</label>
                       <br>
                       <input type="email" name = "email" class="form-control col-md-3 d-inline" id="exampleInputEmail1" placeholder="Email Address"
-                      value = "{{old('email',$blogCategory->email ?? '')}}">
+                      value = "{{old('email',$blogUserService->email ?? '')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputContact1">Contact</label>
                       <br>
                       <input type="text" name = "contact" class="form-control col-md-3 d-inline" id="exampleInputContact1" placeholder="Contact"
-                      value = "{{old('contact',$blogCategory->contact ?? '')}}">
+                      value = "{{old('contact',$blogUserService->contact ?? '')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputAddress1">Address</label>
                       <br>
                       <input type="address" name = "address" class="form-control col-md-3 d-inline" id="exampleInputAddress1" placeholder="Address"
-                      value = "{{old('address',$blogCategory->address ?? '')}}">
+                      value = "{{old('address',$blogUserService->address ?? '')}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputWebsite1">Website</label>
                       <br>
                       <input type="website" name = "website" class="form-control col-md-3 d-inline" id="exampleInputWebsite1" placeholder="Website Address"
-                      value = "{{old('website',$blogCategory->website ?? '')}}">
+                      value = "{{old('website',$blogUserService->website ?? '')}}">
                     </div>
                     <div class="form-group">
                       <div class="form-check">

@@ -19,9 +19,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add New Blog Category</h4>
-                  <form class="forms-sample" method ="POST" action ="{{route('blogcategories.store')}}">
+                  <form class="forms-sample" method ="POST" action ="{{route('users.store')}}">
                     @csrf
-                    @include('blogcategories.form')
+                    @include('blogusers.form')
                   </form>
                 </div>
               </div>

@@ -8,15 +8,17 @@ class BlogUser extends Model
 {
     protected $table = "tbl_blog_user";
 
-    protected $fillable =  ['display_name','first_name','last_name','gender','email','contact','address','status'];
+    protected $fillable =  ['first_name','last_name','display_name','gender','email','contact','address','website','status'];
 
     
-    protected $append = ['full_name'];
-
+    protected $appends = ['full_name'];
+    
     function getFullNameAttribute(){
         return getFullName([$this->first_name,$this->last_name]);
     }
-    function getFirstNameAttribute(){
-        return getFirstLetterCapital($this->first_name);
+
+    function getFirstNameAttribute($value){
+        $this->attributes['first_name'] =  getFirstLetterCapital($value);
     }
+
 }
