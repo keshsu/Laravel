@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogTagTable extends Migration
+class MakingUniqueEmailAndDisplayName extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateBlogTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_blog_tag', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('tag');
-            $table->string('tag_clean')->nullable();
-            $table->timestamps();
+        Schema::table('tbl_blog_user', function (Blueprint $table) {
+            $table->unique('email')->change();
+            $table->unique('display_name')->change();
+            $table->unique('contact')->change();
         });
     }
 
@@ -28,6 +27,8 @@ class CreateBlogTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_blog_tag');
+        Schema::table('tbl_blog_user', function (Blueprint $table) {
+            //
+        });
     }
 }

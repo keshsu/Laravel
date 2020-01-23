@@ -17,17 +17,16 @@ class CreateBlogPostTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('author_id')->unsigned()->index();
             $table->string('title');
-            $table->string('clean_title');
-            $table->string('file');
-            $table->bigInteger('blog_tag')->unsigned()->index();
-            $table->timestamp('date_published');
-            $table->string('banner_image');
-            $table->boolean('featured');
-            $table->enum('status',['active','not-active']);
-            $table->boolean('comment_enabled');
-            $table->integer('views');
+            $table->string('clean_title')->nullable();
+            $table->string('file')->nullable();
+            $table->string('blog_tag');
+            $table->timestamp('date_published')->nullable();
+            $table->string('banner_image')->nullable();
+            $table->boolean('featured')->nullable();
+            $table->enum('status',['active','not-active'])->nullable();
+            $table->boolean('comment_enabled')->nullable();
+            $table->integer('views')->nullable();
             $table->foreign('author_id')->references('id')->on('tbl_blog_user');
-            $table->foreign('blog_tag')->references('id')->on('tbl_blog_tag');
             $table->timestamps();
         });
     }

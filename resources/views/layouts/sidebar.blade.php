@@ -11,7 +11,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('customers.index')}}">
-              <i class="mdi mdi-account menu-icon"></i>
+              <i class="mdi mdi-account-box  menu-icon"></i>
               <span class="menu-title">Customer</span>
             </a>
           </li>
@@ -22,9 +22,21 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{route('posts.index')}}">
+              <i class="mdi mdi-book  menu-icon"></i>
+              <span class="menu-title">Blog Posts</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{route('blogcategories.index')}}">
-              <i class="mdi mdi-account menu-icon"></i>
+              <i class="mdi mdi-format-list-bulleted-type menu-icon"></i>
               <span class="menu-title">Blog Category</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('tags.index')}}">
+              <i class="mdi mdi-tag-multiple menu-icon"></i>
+              <span class="menu-title">Blog Tags</span>
             </a>
           </li>
         </ul>

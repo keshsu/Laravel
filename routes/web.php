@@ -42,3 +42,19 @@ Route::post('/user/store','BlogUserController@store')->name('users.store');
 Route::get('/user/{id}/edit','BlogUserController@edit')->name('users.edit');
 Route::patch('/user/{id}/edit','BlogUserController@update');
 Route::delete('/user/{id}/delete','BlogUserController@destroy')->name('users.delete');
+
+//blog tag
+Route::get('/tag','BlogTagsController@Index')->name('tags.index');
+Route::get('/tag/register','BlogTagsController@create')->name('tags.register');
+Route::post('/tag/store','BlogTagsController@store')->name('tags.store');
+Route::get('/tag/{id}/edit','BlogTagsController@edit')->name('tags.edit');
+Route::patch('/tag/{id}/edit','BlogTagsController@update');
+Route::delete('/tag/{id}/delete','BlogTagsController@destroy')->name('tags.delete');
+
+//blog post
+Route::get('/post','BlogPostController@Index')->name('posts.index');
+Route::get('/post/register','BlogPostController@create')->name('posts.register');
+Route::post('/post/store','BlogPostController@store')->name('posts.store');
+Route::get('/post/{id}/edit','BlogPostController@edit')->name('posts.edit');
+Route::patch('/post/{id}/edit','BlogPostController@update');
+Route::delete('/post/{id}/delete','BlogPostController@destroy')->name('posts.delete');
